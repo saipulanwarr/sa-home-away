@@ -5,7 +5,6 @@ import db from "./db";
 import { auth, clerkClient, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { error } from "console";
 
 export const createProfileAction = async (prevState: any, formData: FormData) => {
     try {
@@ -35,4 +34,20 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
 
     redirect('/')
   };
+
+  export const fetchProfileImage = async () => {
+    const user = await currentUser();
+    if(!user) return null;
+
+    const profile = await db.profile.findUnique({
+        where: {
+            clerkId: user.id
+        },
+        select: {
+            profileImage: true,
+        }
+    });
+
+    return profile?.profileImage;
+  }
   
