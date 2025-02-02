@@ -16,6 +16,7 @@ function ImageInput() {
         type="file"
         accept="image/*"
         className="max-w-ws"
+        required
       />
     </div>
   );
