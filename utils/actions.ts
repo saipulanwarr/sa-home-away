@@ -127,4 +127,17 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
         return renderError(error)
     }
   };
+
+  export const createPropertyAction = async (prevState: any, formData: FormData): Promise<{message: string}> => {
+    const user = await getAuthUser();
+
+    try{
+        const rawData = Object.fromEntries(formData);
+        const validatedFields = validateWithZodSchema(profileSchema, rawData)
+
+        return {message: 'property created'}
+    }catch(error){
+        return renderError(error)
+    }
+  }
   
