@@ -4,6 +4,7 @@ import FormInput from "@/components/form/FormInput";
 import FormContainer from "@/components/form/FormContainer";
 import { createPropertyAction } from "@/utils/actions";
 import { SubmitButton } from "@/components/form/Buttons";
+import PriceInput from "@/components/form/PriceInput";
 
 function CreatePropertyPage() {
   return (
@@ -27,6 +28,7 @@ function CreatePropertyPage() {
               label="tagline (30 limit)"
               defaultValue="Dream gateway awaits you here"
             />
+            <PriceInput />
           </div>
           <SubmitButton size="lg" text="create rental" className="mt-12" />
         </FormContainer>
