@@ -10,6 +10,7 @@ import TextAreaInput from "@/components/form/TextAreaInput";
 import CountriesInput from "@/components/form/CountriesInput";
 import ImageInput from "@/components/form/ImageInput";
 import CounterInput from "@/components/form/CounterInput";
+import AmenitiesInput from "@/components/form/AmenitiesInput";
 
 function CreatePropertyPage() {
   return (
@@ -51,6 +52,8 @@ function CreatePropertyPage() {
           <CounterInput detail="bedrooms" />
           <CounterInput detail="beds" />
           <CounterInput detail="baths" />
+          <h3 className="text-lg mt-8 mb-4 font-medium">Amenities</h3>
+          <AmenitiesInput />
           <SubmitButton size="lg" text="create rental" className="mt-12" />
         </FormContainer>
       </div>
