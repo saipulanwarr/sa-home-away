@@ -10,13 +10,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const name = "categories";
+const name = "country";
 
 function CountriesInput({ defaultValue }: { defaultValue?: string }) {
   return (
     <div className="mb-2">
       <Label htmlFor={name} className="capitalize">
-        Country
+        country
       </Label>
       <Select
         defaultValue={defaultValue || formattedCountries[0].code}

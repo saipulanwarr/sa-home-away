@@ -1,6 +1,6 @@
 'use server';
 
-import { imageSchema, profileSchema, validateWithZodSchema } from "./schemas";
+import { imageSchema, profileSchema, propertySchema, validateWithZodSchema } from "./schemas";
 import db from "./db";
 import { auth, clerkClient, currentUser } from "@clerk/nextjs/server";
 import { revalidatePath } from "next/cache";
@@ -133,11 +133,23 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
 
     try{
         const rawData = Object.fromEntries(formData);
-        const validatedFields = validateWithZodSchema(profileSchema, rawData)
+        const file = formData.get('image') as File;
 
-        return {message: 'property created'}
+        const validatedFields = validateWithZodSchema(propertySchema, rawData);
+        const validatedFile = validateWithZodSchema(imageSchema, { image: file });
+        const fullPath = await uploadImage(validatedFile.image);
+
+        await db.property.create({
+            data: {
+                ...validatedFields,
+                image: fullPath,
+                profileId: user.id,
+            },
+        })
     }catch(error){
         return renderError(error)
     }
+
+    redirect('/')
   }
   
