@@ -6,6 +6,7 @@ import { createPropertyAction } from "@/utils/actions";
 import { SubmitButton } from "@/components/form/Buttons";
 import PriceInput from "@/components/form/PriceInput";
 import CategoriesInput from "@/components/form/CategoriesInput";
+import TextAreaInput from "@/components/form/TextAreaInput";
 
 function CreatePropertyPage() {
   return (
@@ -32,6 +33,10 @@ function CreatePropertyPage() {
             <PriceInput />
             <CategoriesInput />
           </div>
+          <TextAreaInput
+            name="description"
+            labelText="Description (10 - 100 words)"
+          />
           <SubmitButton size="lg" text="create rental" className="mt-12" />
         </FormContainer>
       </div>
