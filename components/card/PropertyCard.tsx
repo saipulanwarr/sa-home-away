@@ -5,6 +5,7 @@ import Link from "next/link";
 import React from "react";
 import PropertyRating from "./PropertyRating";
 import FavoriteToggleButton from "./FavoriteToggleButton";
+import CountryFlagAndName from "./CountryFlagAndName";
 
 function PropertyCard({ property }: { property: PropertyCardProps }) {
   const { name, image, price } = property;
@@ -36,6 +37,7 @@ function PropertyCard({ property }: { property: PropertyCardProps }) {
             <span className="font-semibold">{formatCurrency(price)} </span>
             night
           </p>
+          <CountryFlagAndName countryCode={country} />
         </div>
       </Link>
       <div className="absolute top-2 right-2 z-5">
