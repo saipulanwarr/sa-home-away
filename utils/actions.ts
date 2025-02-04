@@ -174,5 +174,7 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
             createdAt: 'desc'
         }
     })
+
+    return properties;
   }
   
