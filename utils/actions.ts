@@ -223,4 +223,27 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
         return renderError(error)
     }
   };
+
+  export const fetchFavorites = async () => {
+    const user = await getAuthUser()
+    const favorites = await db.favorite.findMany({
+        where:{
+            profileId: user.id,
+        },
+        select: {
+            property: {
+                select: {
+                    id: true,
+                    name: true,
+                    tagline: true,
+                    country: true,
+                    image: true,
+                    price: true,
+                }
+            }
+        }
+    });
+
+    return favorites.map((favorite) => favorite.property)
+  }
   
