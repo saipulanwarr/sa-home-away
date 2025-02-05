@@ -246,4 +246,15 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
 
     return favorites.map((favorite) => favorite.property)
   }
+
+  export const fetchPropertyDetails = (id: string) => {
+    return db.property.findUnique({
+        where: {
+            id,
+        },
+        include: {
+            profile: true,
+        }
+    })
+  }
   
