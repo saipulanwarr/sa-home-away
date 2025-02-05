@@ -196,7 +196,7 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
 
   export const toggleFavoriteAction = async (prevState: {
     propertyId: string;
-    favoriteId: string;
+    favoriteId: any;
     pathname: string;
   }) => {
     const user = await getAuthUser();
