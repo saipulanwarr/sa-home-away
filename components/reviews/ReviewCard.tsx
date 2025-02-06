@@ -15,7 +15,7 @@ type ReviewCardProps = {
 
 function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
   return (
-    <Card>
+    <Card className="relative">
       <CardHeader>
         <div className="flex items-center">
           <img
@@ -34,7 +34,7 @@ function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
       <CardContent>
         <Comment comment={reviewInfo.comment} />
       </CardContent>
-      <div className="absoulte top-3 right-3">{children}</div>
+      <div className="absolute top-3 right-3">{children}</div>
     </Card>
   );
 }
