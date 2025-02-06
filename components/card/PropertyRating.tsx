@@ -11,7 +11,7 @@ async function PropertyRating({
   inPage: boolean;
 }) {
   const { rating, count } = await fetchPropertyRating(propertyId);
-  // if (count === 0) return null;
+  if (count === 0) return null;
 
   const className = `flex gap-1 items-center ${inPage ? "text-md" : "text-xs"}`;
   const countText = count > 1 ? "reviews" : "review";
