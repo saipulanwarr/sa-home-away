@@ -10,8 +10,10 @@ async function PropertyRating({
   propertyId: string;
   inPage: boolean;
 }) {
-  const { rating, count } = await fetchPropertyRating(propertyId);
-  if (count === 0) return null;
+  // const { rating, count } = await fetchPropertyRating(propertyId);
+  // if (count === 0) return null;
+  const rating = 100;
+  const count = 5;
 
   const className = `flex gap-1 items-center ${inPage ? "text-md" : "text-xs"}`;
   const countText = count > 1 ? "reviews" : "review";
