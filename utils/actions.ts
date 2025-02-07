@@ -255,6 +255,12 @@ export const createProfileAction = async (prevState: any, formData: FormData) =>
         },
         include: {
             profile: true,
+            bookings: {
+                select: {
+                    checkIn: true,
+                    checkOut: true,
+                }
+            }
         }
     })
   }
